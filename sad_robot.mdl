@@ -1,0 +1,109 @@
+frames 550
+basename sad_robot
+//----the intro box----
+push
+scale 1 1 1 invis1
+rotate y 90
+rotate y 360 intro_spin
+move 0 150 0 move_up
+sphere 250 250 250 60
+pop
+//the ipad
+push
+move 0 0 900 mv_ipad_fd
+move 35 350 0 mv_ipad
+scale 1 1 1 zoom_ipad
+box 0 0 -200 210 300 180
+pop
+//----the robot shows up----
+push
+scale 1 1 1 invis2
+//BODY
+push
+move 300 0 0 mv_bod
+rotate y 90 bod_turn
+move 250 250 0
+box -100 125 50 200 250 100
+//HEAD
+push
+move 0 175 0
+rotate y 90
+sphere 0 0 0 50
+pop
+//LEFT ARM
+push
+move -100 125 0
+rotate x -45
+rotate x -30 type
+box -40 0 40 40 100 80
+//LEFT LOWER ARM
+push
+move -20 -100 0
+box -10 0 10 20 125 20
+pop
+pop
+//RIGHT ARM
+push
+move 100 125 0
+rotate x -45
+rotate x 30 type
+box 0 0 40 40 100 80
+//RIGHT LOWER ARM
+push
+move 20 -100 0
+box -10 0 10 20 125 20
+pop
+pop
+//LEFT LEG
+push
+move -100 -125 0
+rotate x -30 left_walk
+box 0 0 40 50 120 80
+pop
+//RIGHT LEG
+push
+move 100 -125 0
+rotate x -30 right_walk
+box -50 0 40 50 120 80
+//--------knobs--------
+//show + hide what you need to
+vary invis1 0 60 1 1
+vary invis2 61 549 1 1
+vary zoom_ipad 115 420 1 1
+//make the intro sphere spin
+vary intro_spin 0 19 1 0
+vary intro_spin 20 39 0 1
+//move intro sphere up to head
+vary move_up 40 60 0 1
+//turn right + walk
+vary bod_turn 61 75 0 1
+vary bod_turn 76 139 1 1
+vary left_walk 76 86 0 1
+vary right_walk 87 100 0 1
+vary left_walk 87 100 1 0
+vary right_walk 100 120 1 0
+vary left_walk 100 120 0 1
+vary mv_bod 76 120 0 1.3
+//ipad secretly enters
+vary mv_ipad 115 125 0 1
+vary mv_ipad 126 420 1 1
+//turn body back around + pause
+vary bod_turn 140 199 1 -1
+vary mv_bod 121 549 1.3 1.3
+vary bod_turn 200 350 -1 -1
+//turn to ipad
+vary bod_turn 351 360 -1 -2
+vary bod_turn 361 420 -2 -2
+//use ipad
+vary type 361 370 0 1
+vary type 371 380 1 0
+vary type 381 390 0 1
+vary type 391 400 1 0
+vary type 401 410 0 1
+//ipad overtakes screen
+//front z
+vary mv_ipad_fd 411 420 0 1
+vary mv_ipad_fd 421 549 1 1
+vary mv_ipad 421 549 1 1.4
+//zoom
+vary zoom_ipad 411 549 1 3
